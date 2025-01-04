@@ -10,7 +10,6 @@ app = FastAPI(title="Task API",
                 {"url": "https://robot-controller.onrender.com", "description": "test environment"}]
                 )
 
-
 class Point(BaseModel):
     x: float
     y: float
@@ -25,11 +24,6 @@ async def root():
 @app.get("/")
 async def status():
     return {"result": "Hello World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
 
 @app.post("/move_to_dispense_glue", summary="glue dispensing task", description="This endpoint allows you to control robot movement and glue dispensing")
 async def move_to_dispense_glue(points: Points, enable_dispenser: bool = False, continue_dispensing: bool = False):
