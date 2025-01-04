@@ -35,4 +35,4 @@ async def move_to_dispense_glue(points: Points, enable_dispenser: bool = False, 
     print("Move waypoints:", enable_dispenser, continue_dispensing)
     for p in points.points:
         print(p)
-    return {"result": "done", "task": points, "continue_dispensing": continue_dispensing}
+    return {"result": "done"}
